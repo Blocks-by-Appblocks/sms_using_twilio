@@ -1,0 +1,13 @@
+{
+  "name": "sms_using_twilio",
+  "type": "function",
+  "source": {
+    "https": "https://github.com/Blocks-by-Appblocks/sms_using_twilio",
+    "ssh": "git@github.com:Blocks-by-Appblocks/sms_using_twilio.git"
+  },
+  "language": "nodejs",
+  "start": "node index.js",
+  "build": "",
+  "postPull": "npm i",
+  "standAloneBlock": true
+}
