@@ -1,16 +1,18 @@
 {
-    "name": "sms_using_twilio",
-    "version": "0.0.1",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-      "start": "node index.js --port=3000"
-    },
-    "type": "module",
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "express": "^4.17.3"
-    }
+  "name": "sms_using_twilio",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js --port=3000"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.17.3",
+    "twilio": "^3.82.1"
   }
+}
