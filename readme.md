@@ -1,6 +1,6 @@
 ## Block for sending sms using twilio
 
-Method : `POST` || `GET`
+Method : `POST` 
 
 Payload :    
      `message`: text you want to send  
