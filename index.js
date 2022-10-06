@@ -14,7 +14,7 @@ const sms_using_twilio = async (req, res) => {
         }
 
         if (method !== 'POST') {
-            res.write(JSON.stringify({ success: false, msg: `Only POST methods are allowed` }));
+            res.write(JSON.stringify({ success: false, msg: `Only POST method is allowed` }));
             res.end();
             return;
         }
