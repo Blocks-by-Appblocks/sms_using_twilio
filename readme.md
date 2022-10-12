@@ -3,5 +3,5 @@
 Method : `POST` 
 
 Payload :    
-     `message`: text you want to send  
-     `to` : receiver's mobile number in international format
+     `message`: `String`  text you want to send  
+     `to` : `String` receiver's mobile number in international format
