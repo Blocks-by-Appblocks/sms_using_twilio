@@ -14,21 +14,15 @@ const sms_using_twilio = async (req, res) => {
         }
 
         if (method !== 'POST') {
-            res.write(JSON.stringify({ success: false, msg: `Only POST method is allowed` }));
-            res.end();
-            return;
+            res.status(405).send({ success: false, msg: 'Only POST method is allowed' });
         }
 
         if (!env.TWILIO_AUTH_TOKEN || !env.TWILIO_SID) {
-            res.write(JSON.stringify({ success: false, msg: `TWILIO Credentials are missing` }));
-            res.end();
-            return;
+            res.status(400).send({ success: false, msg: 'Twilo credentials are missing' });
         }
 
         if (!to) {
-            res.write(JSON.stringify({ success: false, msg: `to value is missing in body` }));
-            res.end();
-            return;
+            res.status(400).send({ success: false, msg: 'to value is missing in body' });
         }
 
         const twilio = Twilio(env.TWILIO_SID, env.TWILIO_AUTH_TOKEN);
@@ -37,17 +31,14 @@ const sms_using_twilio = async (req, res) => {
             const messageResponse = await twilio.messages.create({
                 from: env.TWILIO_PHONE_NUMBER,
                 to,
-                body: message
+                body: message,
             });
-            res.write(JSON.stringify({ success: true, msg: `message send successfully`, data: messageResponse }));
-            res.end();
+            res.status(200).send({ success: false, msg: 'message send successfully', data: messageResponse });
         } catch (error) {
-            res.write(JSON.stringify({ success: false, msg: `something went wrong`, data: error }));
-            res.end();
+            res.status(500).send({ success: false, msg: error });
         }
     } catch (error) {
-        res.write(JSON.stringify({ success: false, msg: `Internal Error`, data: error }));
-        res.end();
+        res.status(500).send({ success: false, msg: error });
     }
 };
 
