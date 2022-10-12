@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 const { parsed: env } = dotenv.config({ path: '../.env.functions' });
 
 const sms_using_twilio = async (req, res) => {
-    try {
+    
         const { method, body: { to = null, message = '' } = {} } = req;
 
         // health check
@@ -37,9 +37,7 @@ const sms_using_twilio = async (req, res) => {
         } catch (error) {
             res.status(500).send({ success: false, msg: error });
         }
-    } catch (error) {
-        res.status(500).send({ success: false, msg: error });
-    }
+    
 };
 
 export default sms_using_twilio;
